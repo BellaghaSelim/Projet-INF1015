@@ -8,11 +8,10 @@
 class Piece {
 
 public:
-	Piece(std::vector<Position> deplacementPossible);
 	Piece();
 	~Piece();
 	void deplacement(Position deplacement);
-	bool verifierDeplacement(Position deplacement);
+	virtual bool verifierDeplacement(Position deplacement);
 
 
 private:

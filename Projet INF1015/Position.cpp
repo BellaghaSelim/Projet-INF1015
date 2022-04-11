@@ -2,7 +2,7 @@
 #include <string>
 
 Position::Position() {
-
+	m_x = 0; m_y = 0;
 }
 
 Position::Position(int x, int y) {
@@ -15,8 +15,28 @@ void Position::operator+(Position autre) {
 	m_y += autre.m_y;
 }
 
-int Position::operator%(Position autre) {
-	return autre.m_x % m_x, autre.m_y % m_y;
-	std::cout << "ergier" << std::endl;
+Position Position::operator%(Position autre) {
 
+	if (m_x != 0 && m_y != 0) {
+		return Position(autre.m_x % m_x, autre.m_y % m_y);
+	}
+	else if (m_y == 0 && m_x != 0) {
+		return Position(autre.m_x % m_x, autre.getPosition_y());
+	}
+	else if (m_x == 0 && m_y != 0) {
+		return Position(autre.getPosition_x(), autre.m_y % m_y);
+	}
+	else {
+		return Position(-1, -1);
+	}
+}
+
+bool Position::operator==(Position autre) {
+
+	if (m_x == autre.m_x && m_y == autre.m_y) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
