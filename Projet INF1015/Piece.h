@@ -6,8 +6,8 @@
 
 enum Couleur
 {
-	Blanc,
-	Noir,
+	Blanc=0,
+	Noir=1,
 };
 
 class Piece {

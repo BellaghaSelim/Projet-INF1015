@@ -1,5 +1,5 @@
 #include "Piece.h"
-#include ""
+#include "Position.h"
 
 class Board {
 public:
@@ -7,8 +7,10 @@ public:
 	~Board();
 	void initialiserPiece(int ligne,int colonne, Piece* piece);
 	void reinisitialiserCase(int ligne, int colonne);
-	bool verifierEchec(R)
-	Position retrouverPiece(Piece* piece);
+	bool verifierEchec();
+	Position retrouverPosRoi(Couleur couleur);
+	std::vector<Piece*> retrouverToutesLesPieces(std::vector<Piece*>& vecteurDePiece, Couleur couleur);
+
 	
 
 private :

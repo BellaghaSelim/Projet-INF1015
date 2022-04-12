@@ -1,6 +1,7 @@
 #include "board.h"
 #include "Piece.h"
 #include "Roi.h"
+#include <typeinfo>
 
 
 
@@ -32,19 +33,46 @@ void Board::reinisitialiserCase(int ligne, int colonne) {
 	board_[ligne][colonne] = nullptr;
 }
 
-Position Board::retrouverPiece(Piece* piece, Couleur couleur) {
+Position Board::retrouverPosRoi(Couleur couleur) {
 	for (int i = 0; i < nombreLignes_; i++) {
 		for (int j = 0; j < nombreColonnes_; j++) {
-			if (board[i][j] == piece && piece->m_couleur == couleur) {
-				return board[i][j]->m_position;
+			if (typeid(*board_[i][j]) == typeid(Roi) && board_[i][j]->m_couleur == couleur) {
+				return board_[i][j]->m_position;
 			}
 			else std::cout << "Cette pièce n'est pas en jeu\n";
 		}
 	}
 }
 
+std::vector<Piece*> Board::retrouverToutesLesPieces(std::vector<Piece*>& vecteurDePiece, Couleur couleur) {
+	for (int i = 0; i < nombreLignes_; i++) {
+		for (int j = 0; j < nombreColonnes_; j++) {
+			if (board[i][j] != nullptr && board_[i][j]->m_couleur==couleur) {
+				vecteurDePiece.push_back(board_[i][j]);
+			}
+		}
+	}
+	return vecteurDePieces;
+}
+
 bool Board::verifierEchec(){
-	retrouverPiece(Roi * roi, Couleur couleurRoi);
+	posRoiBlanc = retrouverPosRoi(Blanc);
+	posRoiNoir  = retrouverPosRoi(Noir);
+	std::vector<Piece*> piecesRestantesBlanches = {};
+	std::vector<Piece*> pieceRestantesNoires = {};
+	piecesRestantesBlanches = retrouverToutesLesPieces(piecesRestantesBlanches, Blanc);
+	pieceRestantesNoires = retrouverToutesLesPieces(pieceRestantesNoires, Noir);
+	
+	for (int i = 0; i < piecesRestantesBlanches; i++) {
+		for (int j=0; j)
+		piecesRestantesBlanches[i]->m_position+
+	}
+	
+	
+
+
+	
+	
 
 	
 }
