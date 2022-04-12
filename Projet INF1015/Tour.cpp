@@ -4,6 +4,10 @@
 Tour::Tour() {
 }
 
+Tour::Tour(Couleur couleur) : Piece(couleur) {
+
+}
+
 Tour::~Tour() {
 
 }

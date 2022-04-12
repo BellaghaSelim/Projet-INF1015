@@ -8,6 +8,10 @@ Piece::Piece()
 
 }
 
+Piece::Piece(Couleur couleur) {
+	m_couleur = couleur;
+}
+
 Piece::~Piece() {
 
 }

@@ -8,6 +8,10 @@ Pion::~Pion(){
 
 }
 
+Pion::Pion(Couleur couleur) : Piece(couleur) {
+
+}
+
 void Pion::deplacement(Position deplacement) {
 
 	if (verifierDeplacement(deplacement)) {

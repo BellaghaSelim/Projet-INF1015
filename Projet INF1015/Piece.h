@@ -4,10 +4,16 @@
 #include <vector>
 #include <string>
 
+enum Couleur
+{
+	Blanc,
+	Noir,
+};
 
 class Piece {
 
 public:
+	Piece(Couleur couleur);
 	Piece();
 	~Piece();
 	void deplacement(Position deplacement);
@@ -17,4 +23,5 @@ public:
 private:
 	Position m_position;
 	std::vector<Position> m_deplacementPossible;
+	Couleur m_couleur;
 };

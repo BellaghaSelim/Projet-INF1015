@@ -4,6 +4,10 @@
 Roi::Roi() {
 }
 
+Roi::Roi(Couleur couleur) : Piece(couleur) {
+
+}
+
 Roi::~Roi() {
 
 }
