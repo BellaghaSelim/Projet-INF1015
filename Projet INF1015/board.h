@@ -9,7 +9,7 @@ public:
 	void reinisitialiserCase(int ligne, int colonne);
 	bool verifierEchec();
 	Position retrouverPosRoi(Couleur couleur);
-	std::vector<Piece*> retrouverToutesLesPieces(std::vector<Piece*>& vecteurDePiece, Couleur couleur);
+	std::vector<Piece*> retrouverToutesLesPieces(Couleur couleur);
 
 	
 

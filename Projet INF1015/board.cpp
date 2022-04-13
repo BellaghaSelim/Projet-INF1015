@@ -39,16 +39,17 @@ Position Board::retrouverPosRoi(Couleur couleur) {
 			if (typeid(*board_[i][j]) == typeid(Roi) && board_[i][j]->m_couleur == couleur) {
 				return board_[i][j]->m_position;
 			}
-			else std::cout << "Cette pièce n'est pas en jeu\n";
+			else std::cout << "Cette pièce n'est pas en jeu\n"; // pas de roi => partie finie
 		}
 	}
 }
 
-std::vector<Piece*> Board::retrouverToutesLesPieces(std::vector<Piece*>& vecteurDePiece, Couleur couleur) {
+std::vector<Piece*> Board::retrouverToutesLesPieces(Couleur couleur) {
+	std::vector<Piece*> vecteurDePieces = {};
 	for (int i = 0; i < nombreLignes_; i++) {
 		for (int j = 0; j < nombreColonnes_; j++) {
-			if (board[i][j] != nullptr && board_[i][j]->m_couleur==couleur) {
-				vecteurDePiece.push_back(board_[i][j]);
+			if (board_[i][j] != nullptr && board_[i][j]->m_couleur==couleur) {
+				vecteurDePieces.push_back(board_[i][j]);
 			}
 		}
 	}
@@ -56,17 +57,15 @@ std::vector<Piece*> Board::retrouverToutesLesPieces(std::vector<Piece*>& vecteur
 }
 
 bool Board::verifierEchec(){
-	posRoiBlanc = retrouverPosRoi(Blanc);
-	posRoiNoir  = retrouverPosRoi(Noir);
-	std::vector<Piece*> piecesRestantesBlanches = {};
-	std::vector<Piece*> pieceRestantesNoires = {};
-	piecesRestantesBlanches = retrouverToutesLesPieces(piecesRestantesBlanches, Blanc);
-	pieceRestantesNoires = retrouverToutesLesPieces(pieceRestantesNoires, Noir);
+	Position posRoiBlanc = retrouverPosRoi(Blanc);
+	Position posRoiNoir  = retrouverPosRoi(Noir);
+	std::vector<Piece*> piecesRestantesBlanches = retrouverToutesLesPieces(Blanc);
+	std::vector<Piece*> pieceRestantesNoires = retrouverToutesLesPieces(Noir);
 	
-	for (int i = 0; i < piecesRestantesBlanches; i++) {
+	/*for (int i = 0; i < piecesRestantesBlanches; i++) {
 		for (int j=0; j)
 		piecesRestantesBlanches[i]->m_position+
-	}
+	}*/
 	
 	
 
