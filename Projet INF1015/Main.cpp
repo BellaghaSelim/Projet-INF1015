@@ -20,4 +20,13 @@ int main(){
 	roi.deplacement(Position(0, 2));
 	std::cout << "ii" << std::endl;
 	roi.deplacement(Position(0, 1));
+
+	try {
+		/*EspaceDeJeu::Board::initialiserPiece();
+		initialiserCoordonnees(7, 0, std::make_shared<Roi>("noir", 7, 0));*/
+	}
+
+	catch (std::runtime_error& error) {
+		std::cout << error.what() << std::endl;
+	}
 }

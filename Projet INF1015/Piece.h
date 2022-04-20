@@ -4,24 +4,26 @@
 #include <vector>
 #include <string>
 
-enum Couleur
-{
-	Blanc=0,
-	Noir=1,
-};
+namespace ActeursDuJeu {
+	enum Couleur
+	{
+		Blanc = 0,
+		Noir = 1,
+	};
 
-class Piece {
+	class Piece {
 
-public:
-	Piece(Couleur couleur);
-	Piece();
-	~Piece();
-	void deplacement(Position deplacement);
-	virtual bool verifierDeplacement(Position deplacement);
+	public:
+		Piece(Couleur couleur);
+		Piece();
+		~Piece();
+		void deplacement(Position deplacement);
+		virtual bool verifierDeplacement(Position deplacement);
 
 
-private:
-	Position m_position;
-	std::vector<Position> m_deplacementPossible;
-	Couleur m_couleur;
-};
+	private:
+		Position m_position;
+		std::vector<Position> m_deplacementPossible;
+		Couleur m_couleur;
+	};
+}

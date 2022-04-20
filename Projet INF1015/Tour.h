@@ -3,11 +3,11 @@
 #include "Piece.h"
 #include "Position.h"
 
-class Tour : public Piece
+class Tour : public ActeursDuJeu::Piece
 {
 public:
 	Tour();
-	Tour(Couleur couleur);
+	Tour(ActeursDuJeu::Couleur couleur);
 	~Tour();
 	void deplacement(Position deplacement);
 	std::vector<Position> getDeplacementPossible() { return m_deplacementPossible; };

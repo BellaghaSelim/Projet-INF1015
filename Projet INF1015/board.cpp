@@ -2,9 +2,7 @@
 #include "Piece.h"
 #include "Roi.h"
 #include <typeinfo>
-
-
-
+namespace EspaceDeJeu {
 Board::Board() {
 
 	for (int i = 0; i <nombreLignes_; i++) {
@@ -25,7 +23,7 @@ Board::~Board() {
 	}
 }
 
-void Board::initialiserPiece(int ligne, int colonne, Piece* piece) {
+void Board::initialiserPiece(int ligne, int colonne, ActeursDuJeu::Piece* piece) {
 	board_[ligne][colonne] = piece;
 }
 
@@ -33,7 +31,7 @@ void Board::reinisitialiserCase(int ligne, int colonne) {
 	board_[ligne][colonne] = nullptr;
 }
 
-Position Board::retrouverPosRoi(Couleur couleur) {
+Position Board::retrouverPosRoi(ActeursDuJeu::Couleur couleur) {
 	for (int i = 0; i < nombreLignes_; i++) {
 		for (int j = 0; j < nombreColonnes_; j++) {
 			if (typeid(*board_[i][j]) == typeid(Roi) && board_[i][j]->m_couleur == couleur) {
@@ -44,8 +42,8 @@ Position Board::retrouverPosRoi(Couleur couleur) {
 	}
 }
 
-std::vector<Piece*> Board::retrouverToutesLesPieces(Couleur couleur) {
-	std::vector<Piece*> vecteurDePieces = {};
+std::vector<ActeursDuJeu::Piece*> EspaceDeJeu::Board::retrouverToutesLesPieces(ActeursDuJeu::Couleur couleur) {
+	std::vector<ActeursDuJeu::Piece*> vecteurDePieces = {};
 	for (int i = 0; i < nombreLignes_; i++) {
 		for (int j = 0; j < nombreColonnes_; j++) {
 			if (board_[i][j] != nullptr && board_[i][j]->m_couleur==couleur) {
@@ -56,22 +54,23 @@ std::vector<Piece*> Board::retrouverToutesLesPieces(Couleur couleur) {
 	return vecteurDePieces;
 }
 
-bool Board::verifierEchec(){
-	Position posRoiBlanc = retrouverPosRoi(Blanc);
-	Position posRoiNoir  = retrouverPosRoi(Noir);
-	std::vector<Piece*> piecesRestantesBlanches = retrouverToutesLesPieces(Blanc);
-	std::vector<Piece*> pieceRestantesNoires = retrouverToutesLesPieces(Noir);
+//bool Board::verifierEchec(){
+//	Position posRoiBlanc = retrouverPosRoi(Blanc);
+//	Position posRoiNoir  = retrouverPosRoi(Noir);
+//	std::vector<Piece*> piecesRestantesBlanches = retrouverToutesLesPieces(Blanc);
+//	std::vector<Piece*> pieceRestantesNoires = retrouverToutesLesPieces(Noir);
+//	
+//	for (int i = 0; i < piecesRestantesBlanches; i++) {
+//		for (int j=0; j)
+//		piecesRestantesBlanches[i]->m_position+
+//	}
+//	
 	
-	/*for (int i = 0; i < piecesRestantesBlanches; i++) {
-		for (int j=0; j)
-		piecesRestantesBlanches[i]->m_position+
-	}*/
+
+
 	
 	
 
+	
+ }
 
-	
-	
-
-	
-}

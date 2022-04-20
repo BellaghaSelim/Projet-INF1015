@@ -2,12 +2,12 @@
 #include "Piece.h"
 #include "Position.h"
 
-class Pion : public Piece
+class Pion : public  ActeursDuJeu::Piece
 {
 public:
 	Pion();
 	~Pion();
-	Pion(Couleur couleur);
+	Pion(ActeursDuJeu::Couleur couleur);
 	void deplacement(Position deplacement);
 	std::vector<Position> getDeplacementPossible() { return m_deplacementPossible; };
 	Position getPosition() { return m_position; };

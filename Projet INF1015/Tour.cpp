@@ -4,7 +4,7 @@
 Tour::Tour() {
 }
 
-Tour::Tour(Couleur couleur) : Piece(couleur) {
+ActeursDuJeu::Tour::Tour(ActeursDuJeu::Couleur couleur) : Piece(couleur) { //???
 
 }
 

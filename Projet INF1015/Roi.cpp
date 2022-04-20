@@ -1,15 +1,20 @@
 #include "Roi.h"
 #include "Position.h"
 
+
+int Roi::compteur_ = 0;
 Roi::Roi() {
 }
 
-Roi::Roi(Couleur couleur) : Piece(couleur) {
 
+Roi::Roi(ActeurDuJeu::Couleur couleur) : public ActeursDuJeu::Piece(ActeursDuJeu::Couleur couleur) { //erreur a fix ici et pour le constructeur ????
+	compteur_++;
+	if (compteur_ > 2)
+		throw std::runtime_error("il y a deja 2 roi");
 }
 
 Roi::~Roi() {
-
+	compteur_--;
 }
 
 void Roi::deplacement(Position deplacement) {
@@ -40,3 +45,4 @@ bool Roi::verifierDeplacement(Position deplacement) {
 	return false;
 }
 
+int Roi::getCompteur() { return compteur_; }
