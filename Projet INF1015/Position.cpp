@@ -1,21 +1,21 @@
 #include "Position.h"
 #include <string>
 
-Position::Position() {
+DeplacementPieces::Position::Position() {
 	m_x = 0; m_y = 0;
 }
 
-Position::Position(int x, int y) {
+DeplacementPieces::Position::Position(int x, int y) {
 	m_x = x;
 	m_y = y;
 }
 
-void Position::operator+(Position autre) {
+void DeplacementPieces::Position::operator+(Position autre) {
 	m_x += autre.m_x;
 	m_y += autre.m_y;
 }
 
-Position Position::operator%(Position autre) {
+DeplacementPieces::Position DeplacementPieces::Position::operator%(Position autre) {
 
 	if (m_x != 0 && m_y != 0) {
 		return Position(autre.m_x % m_x, autre.m_y % m_y);
@@ -31,7 +31,7 @@ Position Position::operator%(Position autre) {
 	}
 }
 
-bool Position::operator==(Position autre) {
+bool DeplacementPieces::Position::operator==(Position autre) {
 
 	if (m_x == autre.m_x && m_y == autre.m_y) {
 		return true;

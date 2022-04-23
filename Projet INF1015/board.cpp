@@ -2,75 +2,73 @@
 #include "Piece.h"
 #include "Roi.h"
 #include <typeinfo>
-namespace EspaceDeJeu {
-Board::Board() {
 
-	for (int i = 0; i <nombreLignes_; i++) {
-		for (int j = 0; j <nombreColonnes_; j++) {
-			board_[i][j]=nullptr;
+
+DeplacementPieces::Board::Board() {
+
+	for (int i = 0; i < nombreLignes_; i++) {
+		for (int j = 0; j < nombreColonnes_; j++) {
+			board_[i][j] = nullptr;
 		}
 	}
 
-}
+};
 
 
-Board::~Board() {
+DeplacementPieces::Board::~Board() {
 	for (int i = 0; i < nombreLignes_; i++) {
 		for (int j = 0; j < nombreColonnes_; j++) {
 			board_[i][j] = nullptr;
 			delete board_;
 		}
 	}
-}
+};
 
-void Board::initialiserPiece(int ligne, int colonne, ActeursDuJeu::Piece* piece) {
-	board_[ligne][colonne] = piece;
-}
+//template <class T>
+//void Board::ajouterPiece(T piece, Position position) {
+//	//Piece* ptr_derivee = dynamic_cast<Piece*>(piece);
+//	//board_[position.getPosition_x()][position.getPosition_y()] = nullptr;
+//};
 
-void Board::reinisitialiserCase(int ligne, int colonne) {
-	board_[ligne][colonne] = nullptr;
-}
-
-Position Board::retrouverPosRoi(ActeursDuJeu::Couleur couleur) {
+DeplacementPieces::Position DeplacementPieces::Board::retrouverPosRoi(Couleur couleur) {
 	for (int i = 0; i < nombreLignes_; i++) {
 		for (int j = 0; j < nombreColonnes_; j++) {
-			if (typeid(*board_[i][j]) == typeid(Roi) && board_[i][j]->m_couleur == couleur) {
-				return board_[i][j]->m_position;
+			if (typeid(board_[i][j]) == typeid(Roi) && (board_[i][j]->getCouleur()) == couleur) {
+				return board_[i][j]->getPosition();
 			}
 			else std::cout << "Cette pièce n'est pas en jeu\n"; // pas de roi => partie finie
 		}
 	}
-}
+};
 
-std::vector<ActeursDuJeu::Piece*> EspaceDeJeu::Board::retrouverToutesLesPieces(ActeursDuJeu::Couleur couleur) {
-	std::vector<ActeursDuJeu::Piece*> vecteurDePieces = {};
+std::vector<DeplacementPieces::Piece*> DeplacementPieces::Board::retrouverToutesLesPieces(Couleur couleur) {
+	std::vector<Piece*> vecteurDePieces = {};
 	for (int i = 0; i < nombreLignes_; i++) {
 		for (int j = 0; j < nombreColonnes_; j++) {
-			if (board_[i][j] != nullptr && board_[i][j]->m_couleur==couleur) {
+			if (board_[i][j] != nullptr && board_[i][j]->getCouleur() == couleur) {
 				vecteurDePieces.push_back(board_[i][j]);
 			}
 		}
 	}
 	return vecteurDePieces;
+};
+
+bool DeplacementPieces::Board::verifierEchec(){
+	Position posRoiBlanc = retrouverPosRoi(Blanc);
+	Position posRoiNoir  = retrouverPosRoi(Noir);
+	std::vector<Piece*> piecesRestantesBlanches = retrouverToutesLesPieces(Blanc);
+	std::vector<Piece*> pieceRestantesNoires = retrouverToutesLesPieces(Noir);
+	
+	/*for (int i = 0; i < piecesRestantesBlanches; i++) {
+		for (int j=0; j)
+		piecesRestantesBlanches[i]->m_position+
+	}*/
+	
+	
+
+
+	
+	
+
+	return true;
 }
-
-//bool Board::verifierEchec(){
-//	Position posRoiBlanc = retrouverPosRoi(Blanc);
-//	Position posRoiNoir  = retrouverPosRoi(Noir);
-//	std::vector<Piece*> piecesRestantesBlanches = retrouverToutesLesPieces(Blanc);
-//	std::vector<Piece*> pieceRestantesNoires = retrouverToutesLesPieces(Noir);
-//	
-//	for (int i = 0; i < piecesRestantesBlanches; i++) {
-//		for (int j=0; j)
-//		piecesRestantesBlanches[i]->m_position+
-//	}
-//	
-	
-
-
-	
-	
-
-	
- }
-

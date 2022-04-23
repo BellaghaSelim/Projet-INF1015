@@ -2,36 +2,38 @@
 #include "Position.h"
 #include "Pion.h"
 
-namespace ActeursDuJeu {
-	Piece::Piece()
-	{
 
-	}
+DeplacementPieces::Piece::Piece()
+{
 
-	Piece::Piece(Couleur couleur) {
-		m_couleur = couleur;
-	}
+}
 
-	Piece::~Piece() {
+DeplacementPieces::Piece::Piece(std::vector<DeplacementPieces::Position> deplacementPossible) : m_deplacementPossible(deplacementPossible) {
 
-	}
+}
 
-	void Piece::deplacement(Position deplacement) {
-		if (verifierDeplacement(deplacement)) {
+DeplacementPieces::Piece::Piece(Couleur couleur): m_couleur(couleur) {
+}
+
+DeplacementPieces::Piece::~Piece() {
+
+}
+
+void DeplacementPieces::Piece::deplacement(Position deplacement) {
+	if (verifierDeplacement(deplacement)) {
 			m_position + deplacement;
-		}
-		else {
-			std::cout << "Ce deplacement n'est pas possible" << std::endl;
+	}
+	else {
+		std::cout << "Ce deplacement n'est pas possible" << std::endl;
+	}
+}
+
+bool DeplacementPieces::Piece::verifierDeplacement(Position deplacement) {
+	for (int i = 0; i < m_deplacementPossible.size(); i++) {
+
+		if (deplacement % m_deplacementPossible[i] == Position(0,0)) {
+			return true;
 		}
 	}
-
-	bool Piece::verifierDeplacement(Position deplacement) {
-		for (int i = 0; i < m_deplacementPossible.size(); i++) {
-
-			if (deplacement % m_deplacementPossible[i] == Position(0, 0)) {
-				return true;
-			}
-		}
-		return false;
-	}
+	return false;
 }

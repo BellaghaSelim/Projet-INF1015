@@ -1,15 +1,35 @@
 #include "Piece.h"
 #include "Position.h"
-namespace EspaceDeJeu {
+
+/*
++------------+-----+-----+-----+-----+-----+-----+------------+
+| Case (0,0) | ... | ... | ... | ... | ... | ... | Case (0,7) |
++------------+-----+-----+-----+-----+-----+-----+------------+
+| ...        | ... |     |     |     |     |     |            |
++------------+-----+-----+-----+-----+-----+-----+------------+
+| ...        |     | ... |     |     |     |     |            |
++------------+-----+-----+-----+-----+-----+-----+------------+
+| ...        |     |     | ... |     |     |     |            |
++------------+-----+-----+-----+-----+-----+-----+------------+
+| ...        |     |     |     | ... |     |     |            |
++------------+-----+-----+-----+-----+-----+-----+------------+
+| ...        |     |     |     |     | ... |     |            |
++------------+-----+-----+-----+-----+-----+-----+------------+
+| ...        |     |     |     |     |     | ... |            |
++------------+-----+-----+-----+-----+-----+-----+------------+
+| Case (7,0) |     |     |     |     |     |     | Case (7,7) |
++------------+-----+-----+-----+-----+-----+-----+------------+
+*/
+
+namespace DeplacementPieces {
 	class Board {
 	public:
 		Board();
 		~Board();
-		void initialiserPiece(int ligne, int colonne, ActeursDuJeu::Piece* piece);
-		void reinisitialiserCase(int ligne, int colonne);
 		bool verifierEchec();
-		Position retrouverPosRoi(ActeursDuJeu::Couleur couleur);
-		std::vector<ActeursDuJeu::Piece*> retrouverToutesLesPieces(ActeursDuJeu::Couleur couleur);
+		Position retrouverPosRoi(Couleur couleur);
+		std::vector<Piece*> retrouverToutesLesPieces(Couleur couleur);
+		//void ajouterPiece(Piece piece, Position position);
 
 
 
@@ -17,7 +37,6 @@ namespace EspaceDeJeu {
 		int taille_ = 64;
 		int nombreLignes_ = 8;
 		int nombreColonnes_ = 8;
-		ActeursDuJeu::Piece* board_[8][8];
-	}
-	;
-};
+		Piece* board_[8][8];
+	};
+}

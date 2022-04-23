@@ -1,25 +1,27 @@
 #pragma once
 #include "Piece.h"
 #include "Position.h"
+#include "Deplacement.h"
 
-class Roi : public ActeursDuJeu::Piece
-{
-public:
-	Roi();
-	Roi(ActeursDuJeu::Couleur couleur);
-	~Roi();
-	void deplacement(Position deplacement);
-	std::vector<Position> getDeplacementPossible() { return m_deplacementPossible; };
-	Position getPosition() { return m_position; };
-	virtual bool verifierDeplacement(Position deplacement);
-	int getCompteur();
+namespace DeplacementPieces {
+	class Roi : public Piece
+	{
+	public:
+		Roi();
+		Roi(Couleur couleur);
+		~Roi();
+		void deplacement(Position deplacement);
+		std::vector<Position> getDeplacementPossible() { return m_deplacementPossible; };
+		Position getPosition() { return m_position; };
+		virtual bool verifierDeplacement(Position deplacement);
 
 
-private:
-	Position m_position;
-	std::vector<Position> m_deplacementPossible{ Position(0,1), Position(0,-1), Position(1,0), Position(-1,0) };
-	char m_nom = 'R';
-	static int compteur_; 
-};
+	private:
+		Position m_position;
+		std::vector<Position> m_deplacementPossible = Deplacement::deplacementRoi;
+		char m_nom = 'R';
+		static int m_nbInstances;
+	};
+}
 
 #pragma once

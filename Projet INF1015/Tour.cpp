@@ -1,18 +1,17 @@
 #include "Tour.h"
-#include "Position.h"
 
-Tour::Tour() {
+DeplacementPieces::Tour::Tour() {
 }
 
-ActeursDuJeu::Tour::Tour(ActeursDuJeu::Couleur couleur) : Piece(couleur) { //???
-
-}
-
-Tour::~Tour() {
+DeplacementPieces::Tour::Tour(Couleur couleur) : Piece(couleur) {
 
 }
 
-void Tour::deplacement(Position deplacement) {
+DeplacementPieces::Tour::~Tour() {
+
+}
+
+void DeplacementPieces::Tour::deplacement(Position deplacement) {
 
 	if (verifierDeplacement(deplacement)) {
 		m_position + deplacement;
@@ -23,7 +22,7 @@ void Tour::deplacement(Position deplacement) {
 
 }
 
-bool Tour::verifierDeplacement(Position deplacement) {
+bool DeplacementPieces::Tour::verifierDeplacement(Position deplacement) {
 
 	for (int i = 0; i < m_deplacementPossible.size(); i++) {
 
