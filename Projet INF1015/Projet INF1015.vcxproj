@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="board.h" />
     <ClInclude Include="Deplacement.h" />
+    <ClInclude Include="Couleur.h" />
     <ClInclude Include="Piece.h" />
     <ClInclude Include="Pion.h" />
     <ClInclude Include="Position.h" />

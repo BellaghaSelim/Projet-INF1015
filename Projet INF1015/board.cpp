@@ -19,7 +19,7 @@ namespace EspaceDeJeu {
 		for (int i = 0; i < nombreLignes_; i++) {
 			for (int j = 0; j < nombreColonnes_; j++) {
 				board_[i][j] = nullptr;
-				delete board_;
+				
 			}
 		}
 	};
@@ -32,7 +32,7 @@ namespace EspaceDeJeu {
 	};*/
 
 	
-	DeplacementPieces::Position EspaceDeJeu::Board::retrouverPosRoi(Couleur couleur) {
+	DeplacementPieces::Position EspaceDeJeu::Board::retrouverPosRoi(DeplacementPieces::Couleur couleur) {
 		for (int i = 0; i < nombreLignes_; i++) {
 			for (int j = 0; j < nombreColonnes_; j++) {
 				if (typeid(board_[i][j]) == typeid(DeplacementPieces::Roi) && (board_[i][j]->getCouleur()) == couleur) {
@@ -41,9 +41,10 @@ namespace EspaceDeJeu {
 				else std::cout << "Cette pièce n'est pas en jeu\n"; // pas de roi => partie finie
 			}
 		}
+		
 	};
 
-	std::vector<DeplacementPieces::Piece*> EspaceDeJeu::Board::retrouverToutesLesPieces(Couleur couleur) {
+	std::vector<DeplacementPieces::Piece*> EspaceDeJeu::Board::retrouverToutesLesPieces(DeplacementPieces::Couleur couleur) {
 		std::vector<DeplacementPieces::Piece*> vecteurDePieces = {};
 		for (int i = 0; i < nombreLignes_; i++) {
 			for (int j = 0; j < nombreColonnes_; j++) {
@@ -56,10 +57,10 @@ namespace EspaceDeJeu {
 	};
 
 	bool EspaceDeJeu::Board::verifierEchec() {
-		DeplacementPieces::Position posRoiBlanc = retrouverPosRoi(Blanc);
-		DeplacementPieces::Position posRoiNoir = retrouverPosRoi(Noir);
-		std::vector<DeplacementPieces::Piece*> piecesRestantesBlanches = retrouverToutesLesPieces(Blanc);
-		std::vector<DeplacementPieces::Piece*> pieceRestantesNoires = retrouverToutesLesPieces(Noir);
+		DeplacementPieces::Position posRoiBlanc = retrouverPosRoi(DeplacementPieces::Blanc);
+		DeplacementPieces::Position posRoiNoir = retrouverPosRoi(DeplacementPieces::Noir);
+		std::vector<DeplacementPieces::Piece*> piecesRestantesBlanches = retrouverToutesLesPieces(DeplacementPieces::Blanc);
+		std::vector<DeplacementPieces::Piece*> pieceRestantesNoires = retrouverToutesLesPieces(DeplacementPieces::Noir);
 
 		/*for (int i = 0; i < piecesRestantesBlanches; i++) {
 			for (int j=0; j)

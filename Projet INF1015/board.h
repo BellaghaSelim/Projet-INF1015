@@ -1,5 +1,8 @@
 #include "Piece.h"
 #include "Position.h"
+#include <array>
+#include"Couleur.h"
+
 
 /*
 +------------+-----+-----+-----+-----+-----+-----+------------+
@@ -27,9 +30,9 @@ namespace EspaceDeJeu {
 		Board();
 		~Board();
 		bool verifierEchec();
-		DeplacementPieces::Piece* board_[7][7];
-		DeplacementPieces::Position retrouverPosRoi(Couleur couleur);
-		std::vector<DeplacementPieces::Piece*> retrouverToutesLesPieces(Couleur couleur);
+		std::array<std::array<DeplacementPieces::Piece*,7>, 7> board_;
+		DeplacementPieces::Position retrouverPosRoi(DeplacementPieces::Couleur couleur);
+		std::vector<DeplacementPieces::Piece*> retrouverToutesLesPieces(DeplacementPieces::Couleur couleur);
 		//void ajouterPiece(Board board, DeplacementPieces::Piece* piece, DeplacementPieces::Position position);
 		
 

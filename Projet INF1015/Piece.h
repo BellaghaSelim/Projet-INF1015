@@ -5,15 +5,10 @@
 #include <string>
 #include"board.h"
 
+namespace DeplacementPieces{
 
-enum Couleur
-{
-	Blanc=0,
-	Noir=1,
-};
 
-namespace DeplacementPieces {
-	class Piece {
+class Piece {
 
 	public:
 		Piece(Couleur couleur);
