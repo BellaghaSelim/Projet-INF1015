@@ -1,15 +1,19 @@
 #include "Roi.h"
 #include "Position.h"
 
-DeplacementPieces::Roi::Roi() {
-}
+
+int DeplacementPieces::Roi::m_nbInstances = 0;
+
+
 
 DeplacementPieces::Roi::Roi(Couleur couleur) : Piece(couleur) {
-	m_nbInstances += 1;
+	m_nbInstances ++;
+	if (m_nbInstances > 2)
+		throw std::runtime_error("il y a deja 2 roi");
 }
 
 DeplacementPieces::Roi::~Roi() {
-
+	m_nbInstances--;
 }
 
 void DeplacementPieces::Roi::deplacement(Position deplacement) {
@@ -38,5 +42,10 @@ bool DeplacementPieces::Roi::verifierDeplacement(Position deplacement) {
 		}
 	}
 	return false;
+
+}
+
+void DeplacementPieces::Roi::resetInstances(){
+	m_nbInstances = 0;
 }
 

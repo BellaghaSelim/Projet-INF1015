@@ -19,7 +19,7 @@ namespace DeplacementPieces {
 
 	private:
 		Position m_position;
-		std::vector<Position> m_deplacementPossible = Deplacement::deplacementTour;
+		std::vector<Position> m_deplacementPossible = DeplacementPieces::deplacementTour;
 		char m_nom = 'T';
 	};
 }

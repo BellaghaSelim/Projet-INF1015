@@ -21,15 +21,17 @@
 +------------+-----+-----+-----+-----+-----+-----+------------+
 */
 
-namespace DeplacementPieces {
+namespace EspaceDeJeu {
 	class Board {
 	public:
 		Board();
 		~Board();
 		bool verifierEchec();
-		Position retrouverPosRoi(Couleur couleur);
-		std::vector<Piece*> retrouverToutesLesPieces(Couleur couleur);
-		//void ajouterPiece(Piece piece, Position position);
+		DeplacementPieces::Piece* board_[7][7];
+		DeplacementPieces::Position retrouverPosRoi(Couleur couleur);
+		std::vector<DeplacementPieces::Piece*> retrouverToutesLesPieces(Couleur couleur);
+		//void ajouterPiece(Board board, DeplacementPieces::Piece* piece, DeplacementPieces::Position position);
+		
 
 
 
@@ -37,6 +39,6 @@ namespace DeplacementPieces {
 		int taille_ = 64;
 		int nombreLignes_ = 8;
 		int nombreColonnes_ = 8;
-		Piece* board_[8][8];
+		
 	};
 }

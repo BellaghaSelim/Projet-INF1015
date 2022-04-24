@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include"board.h"
+
 
 enum Couleur
 {
@@ -22,7 +24,7 @@ namespace DeplacementPieces {
 		virtual bool verifierDeplacement(Position deplacement);
 		Position getPosition() { return m_position; };
 		Couleur getCouleur() { return m_couleur; };
-
+		void setPosition(EspaceDeJeu::Board board, Position position);
 
 	private:
 		Position m_position;

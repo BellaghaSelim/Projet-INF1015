@@ -19,7 +19,7 @@ namespace DeplacementPieces {
 
 
 	private:
-		std::vector<Position> m_deplacementPossible = Deplacement::deplacementPion;
+		std::vector<Position> m_deplacementPossible = DeplacementPiece::deplacementPion;
 		Position m_position;
 		bool m_premierDeplacement = true;
 		char m_nom = 'P';

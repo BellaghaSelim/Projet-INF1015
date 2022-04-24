@@ -3,8 +3,8 @@
 #include "Position.h"
 #include "Deplacement.h"
 
-namespace Deplacement {
-	using namespace DeplacementPieces;
+namespace DeplacementPieces {
+	
 	const std::vector<DeplacementPieces::Position> deplacementPion{ Position(0,1) };
 	const std::vector<DeplacementPieces::Position> deplacementTour{ Position(0,1), Position(0,-1), Position(1,0), Position(-1,0) };
 	const std::vector<DeplacementPieces::Position> deplacementRoi{ Position(0,1), Position(0,-1), Position(1,0), Position(-1,0),
