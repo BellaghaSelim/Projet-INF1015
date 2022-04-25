@@ -54,10 +54,10 @@ std::vector<DeplacementPieces::Piece*> DeplacementPieces::Board::retrouverToutes
 };
 
 bool DeplacementPieces::Board::verifierEchec(){
-	Position posRoiBlanc = retrouverPosRoi(Blanc);
-	Position posRoiNoir  = retrouverPosRoi(Noir);
-	std::vector<Piece*> piecesRestantesBlanches = retrouverToutesLesPieces(Blanc);
-	std::vector<Piece*> pieceRestantesNoires = retrouverToutesLesPieces(Noir);
+	Position posRoiBlanc = retrouverPosRoi(Couleur::Blanc);
+	Position posRoiNoir  = retrouverPosRoi(Couleur::Noir);
+	std::vector<Piece*> piecesRestantesBlanches = retrouverToutesLesPieces(Couleur::Blanc);
+	std::vector<Piece*> pieceRestantesNoires = retrouverToutesLesPieces(Couleur::Noir);
 	
 	/*for (int i = 0; i < piecesRestantesBlanches; i++) {
 		for (int j=0; j)

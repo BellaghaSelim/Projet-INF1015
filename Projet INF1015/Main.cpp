@@ -16,7 +16,6 @@ int main(){
 	Position* pos = new Position(1, 1);
 	//board->ajouterPiece<Pion>(*pion, *pos);
 	auto pieceRecherchée = board->retrouverToutesLesPieces(Couleur::Blanc);
-	std::cout << "b";
 	/*Board<Piece> b();
 
 	for (int i = 0; i < 8; i++) {

@@ -1,11 +1,13 @@
 #include "Roi.h"
 #include "Position.h"
 
+int DeplacementPieces::Roi::m_nbInstances = 0;
+
 DeplacementPieces::Roi::Roi() {
+	m_nbInstances += 1;
 }
 
 DeplacementPieces::Roi::Roi(Couleur couleur) : Piece(couleur) {
-	m_nbInstances += 1;
 }
 
 DeplacementPieces::Roi::~Roi() {

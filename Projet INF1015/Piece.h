@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-enum Couleur
+enum class Couleur
 {
 	Blanc=0,
 	Noir=1,
