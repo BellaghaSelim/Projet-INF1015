@@ -5,25 +5,24 @@
 #include <string>
 #include"board.h"
 
-namespace DeplacementPieces{
+
 
 
 class Piece {
 
 	public:
-		Piece(Couleur couleur);
-		Piece(std::vector<Position> deplacementPossible);
+		Piece(Couleur::Couleur couleur);
+		Piece(std::vector<Modele::Position> deplacementPossible);
 		Piece();
 		~Piece();
-		void deplacement(Position deplacement);
-		virtual bool verifierDeplacement(Position deplacement);
-		Position getPosition() { return m_position; };
-		Couleur getCouleur() { return m_couleur; };
-		void setPosition(EspaceDeJeu::Board board, Position position);
+		void deplacement(Modele::Position deplacement);
+		virtual bool verifierDeplacement(Modele::Position deplacement);
+		Modele::Position getPosition() { return m_position; };
+		Couleur::Couleur getCouleur() { return m_couleur; };
+		void setPosition(Modele::Board board, Modele::Position position);
 
 	private:
-		Position m_position;
-		std::vector<Position> m_deplacementPossible;
-		Couleur m_couleur;
+		Modele::Position m_position;
+		std::vector<Modele::Position> m_deplacementPossible;
+		Couleur::Couleur m_couleur;
 	};
-}

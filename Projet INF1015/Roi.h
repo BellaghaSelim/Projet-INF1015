@@ -3,12 +3,12 @@
 #include "Position.h"
 #include "Deplacement.h"
 
-namespace DeplacementPieces {
+namespace Modele {
 	class Roi : public Piece
 	{
 	public:
 		
-		Roi(Couleur couleur);
+		Roi(Couleur::Couleur couleur);
 		~Roi();
 		void deplacement(Position deplacement);
 		std::vector<Position> getDeplacementPossible() { return m_deplacementPossible; };
@@ -19,7 +19,7 @@ namespace DeplacementPieces {
 
 	private:
 		Position m_position;
-		std::vector<Position> m_deplacementPossible = DeplacementPieces::deplacementRoi;
+		std::vector<Position> m_deplacementPossible = Modele::deplacementRoi;
 		char m_nom = 'R';
 		static int m_nbInstances; //inline ne marche pas donc j'ai initialise dans le cpp
 	};

@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-namespace DeplacementPieces {
+namespace Modele {
 	class Position {
 	public:
 		Position();

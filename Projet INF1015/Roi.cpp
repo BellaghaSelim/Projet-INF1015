@@ -2,21 +2,21 @@
 #include "Position.h"
 
 
-int DeplacementPieces::Roi::m_nbInstances = 0;
+int Modele::Roi::m_nbInstances = 0;
 
 
 
-DeplacementPieces::Roi::Roi(Couleur couleur) : Piece(couleur) {
+Modele::Roi::Roi(Couleur::Couleur couleur) : Piece(couleur) {
 	m_nbInstances ++;
 	if (m_nbInstances > 2)
 		throw std::runtime_error("il y a deja 2 roi");
 }
 
-DeplacementPieces::Roi::~Roi() {
+Modele::Roi::~Roi() {
 	m_nbInstances--;
 }
 
-void DeplacementPieces::Roi::deplacement(Position deplacement) {
+void Modele::Roi::deplacement(Position deplacement) {
 
 	if (-1 <= deplacement.getPosition_x() && deplacement.getPosition_x() <= 1 &&
 		-1 <= deplacement.getPosition_y() && deplacement.getPosition_y() <= 1) {
@@ -33,7 +33,7 @@ void DeplacementPieces::Roi::deplacement(Position deplacement) {
 
 }
 
-bool DeplacementPieces::Roi::verifierDeplacement(Position deplacement) {
+bool Modele::Roi::verifierDeplacement(Position deplacement) {
 
 	for (int i = 0; i < m_deplacementPossible.size(); i++) {
 
@@ -45,7 +45,7 @@ bool DeplacementPieces::Roi::verifierDeplacement(Position deplacement) {
 
 }
 
-void DeplacementPieces::Roi::resetInstances(){
+void Modele::Roi::resetInstances(){
 	m_nbInstances = 0;
 }
 

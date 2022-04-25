@@ -1,6 +1,6 @@
 #pragma once
 
-namespace DeplacementPieces {
+namespace Couleur {
 	enum Couleur
 	{
 		Blanc = 0,

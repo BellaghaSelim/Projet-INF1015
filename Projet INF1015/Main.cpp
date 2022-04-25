@@ -11,8 +11,8 @@
 
 int main() {
 	try {
-		DeplacementPieces::Roi* roi1 = new DeplacementPieces::Roi(Blanc);
-		DeplacementPieces::Roi* roi2 = new DeplacementPieces::Roi(Blanc);
+		Modele::Roi* roi1 = new Modele::Roi(Blanc);
+		Modele::Roi* roi2 = new Modele::Roi(Blanc);
 	}
 	catch (std::runtime_error& error) {
 		std::cout << error.what() << std::endl;

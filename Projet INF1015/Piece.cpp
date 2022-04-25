@@ -2,24 +2,24 @@
 #include "Position.h"
 #include "Pion.h"
 
-namespace DeplacementPieces {
+
 	Piece::Piece()
 	{
 
 	}
 
-	Piece::Piece(std::vector<DeplacementPieces::Position> deplacementPossible) : m_deplacementPossible(deplacementPossible) {
+	Piece::Piece(std::vector<Modele::Position> deplacementPossible) : m_deplacementPossible(deplacementPossible) {
 
 	}
 
-	Piece::Piece(Couleur couleur) : m_couleur(couleur) {
+	Piece::Piece(Couleur::Couleur couleur) : m_couleur(couleur) {
 	}
 
 	Piece::~Piece() {
 
 	}
 
-	void Piece::deplacement(Position deplacement) {
+	void Piece::deplacement(Modele::Position deplacement) {
 		if (verifierDeplacement(deplacement)) {
 			m_position + deplacement;
 		}
@@ -28,19 +28,18 @@ namespace DeplacementPieces {
 		}
 	}
 
-	bool Piece::verifierDeplacement(Position deplacement) {
+	bool Piece::verifierDeplacement(Modele::Position deplacement) {
 		for (int i = 0; i < m_deplacementPossible.size(); i++) {
 
-			if (deplacement % m_deplacementPossible[i] == Position(0, 0)) {
+			if (deplacement % m_deplacementPossible[i] == Modele::Position(0, 0)) {
 				return true;
 			}
 		}
 		return false;
 	}
 
-	void Piece::setPosition(EspaceDeJeu::Board board, Position position) {
+	void Piece::setPosition(Modele::Board board, Modele::Position position) {
 		if (board.board_[position.getPosition_x()][position.getPosition_y()] == nullptr) {
 			m_position = position;
 		}
 	}
-}

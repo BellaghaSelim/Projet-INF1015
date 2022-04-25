@@ -1,20 +1,19 @@
 #include "Pion.h"
 #include "Position.h"
 
-DeplacementPieces::Pion::Pion(){
+Modele::Pion::Pion(){
 }
 
 
 
-DeplacementPieces::Pion::~Pion(){
+Modele::Pion::~Pion(){
 
 }
 
-DeplacementPieces::Pion::Pion(Couleur couleur) : Piece(couleur) {
-
+Modele::Pion::Pion(Couleur::Couleur couleur) : Piece(couleur) {
 }
 
-void DeplacementPieces::Pion::deplacement(Position deplacement) {
+void Modele::Pion::deplacement(Position deplacement) {
 
 	if (verifierDeplacement(deplacement)) {
 
@@ -35,7 +34,7 @@ void DeplacementPieces::Pion::deplacement(Position deplacement) {
 
 }
 
-bool DeplacementPieces::Pion::verifierDeplacement(Position deplacement) {
+bool Modele::Pion::verifierDeplacement(Position deplacement) {
 
 	for (int i = 0; i < m_deplacementPossible.size(); i++) {
 
