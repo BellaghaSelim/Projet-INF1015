@@ -9,11 +9,14 @@
 
 using namespace Deplacement;
 
-int main(){
-	
-	Roi roi;
-	Roi roi2;
-	Roi roi3;
-	Pion pion;
-	std::cout << "test";
+int main() {
+	try {
+		DeplacementPieces::Roi* roi1 = new DeplacementPieces::Roi();
+		DeplacementPieces::Roi* roi2 = new DeplacementPieces::Roi();
+		DeplacementPieces::Roi* roi3 = new DeplacementPieces::Roi();
+	}
+	catch (std::runtime_error& error) {
+		std::cout << error.what() << std::endl;
+	}
+
 }

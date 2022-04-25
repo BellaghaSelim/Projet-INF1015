@@ -7,7 +7,7 @@ int DeplacementPieces::Roi::m_nbInstances = 0;
 DeplacementPieces::Roi::Roi() {
 	m_nbInstances++;
 	if (m_nbInstances > 2)
-		throw std::runtime_error("il y a deja 2 roi");
+		throw std::runtime_error("Il y a deja 2 roi.");
 }
 
 DeplacementPieces::Roi::Roi(Couleur couleur) : Piece(couleur) {

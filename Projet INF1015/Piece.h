@@ -20,8 +20,9 @@ namespace DeplacementPieces {
 		~Piece();
 		void deplacement(Position deplacement);
 		virtual bool verifierDeplacement(Position deplacement);
-		Position getPosition() { return m_position; };
-		Couleur getCouleur() { return m_couleur; };
+		virtual void setPosition(Position position) { m_position = position; }
+		Position getPosition() const { return m_position; };
+		Couleur getCouleur() const { return m_couleur; };
 
 
 	private:

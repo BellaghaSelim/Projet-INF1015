@@ -39,6 +39,9 @@
     <ClInclude Include="Deplacement.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="TempPosition.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Position.cpp">
@@ -63,6 +66,9 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Case.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="TempPosition.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
