@@ -1,47 +1,44 @@
-#include "Roi.h"
-#include "Position.h"
-#include <stdexcept>
+#pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
+#pragma pop()
+#include "Roi.hpp"
 
-int DeplacementPieces::Roi::m_nbInstances = 0;
 
-DeplacementPieces::Roi::Roi() {
-	m_nbInstances++;
-	if (m_nbInstances > 2)
-		throw std::runtime_error("Il y a deja 2 roi.");
+
+ int Modele::Roi::compteurRoi = 0;
+
+Modele::Roi::~Roi() {
+   --compteurRoi;
 }
 
-DeplacementPieces::Roi::Roi(Couleur couleur) : Piece(couleur) {
+Modele::Roi::Roi(std::string BlancOuNoir, int x, int y) {
+    nomPiece = 'R';
+    couleur = BlancOuNoir;
+    posX = x;
+    posY = y;
+    ++compteurRoi;
+   
+    
+    
 }
 
-DeplacementPieces::Roi::~Roi() {
-
+bool Modele::Roi::verifBouger(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> table[8][8]) const {
+    if ((abs(posX - nouvellePosX) == 1 || abs(posX - nouvellePosX) == 0) && (abs(posY - nouvellePosY) == 1 || abs(posY - nouvellePosY) == 0)) {
+        if (prendre(nouvellePosX, nouvellePosY, table) || table[nouvellePosX][nouvellePosY] == nullptr) {
+            if(echecRoi(nouvellePosX, nouvellePosY, table)){}
+            return true;
+        }
+    }
+    return false;
 }
 
-void DeplacementPieces::Roi::deplacement(Position deplacement) {
 
-	if (-1 <= deplacement.getPosition_x() && deplacement.getPosition_x() <= 1 &&
-		-1 <= deplacement.getPosition_y() && deplacement.getPosition_y() <= 1) {
-		if (verifierDeplacement(deplacement)) {
-			m_position + deplacement;
-		}
-		else {
-			std::cout << "Ce deplacement n'est pas possible" << std::endl;
-		}
-	}
-	else {
-		std::cout << "Ce deplacement n'est pas possible" << std::endl;
-	}
 
+bool  Modele::Roi::prendre(int nouvellePosX, int nouvellePosY, std::shared_ptr <Piece> table[8][8]) const{
+    if (table[nouvellePosX][nouvellePosY]!= nullptr && couleur!= table[nouvellePosX][nouvellePosY]->getCouleur())
+        return  true;
+    return  false;
 }
 
-bool DeplacementPieces::Roi::verifierDeplacement(Position deplacement) {
 
-	for (int i = 0; i < m_deplacementPossible.size(); i++) {
 
-		if (m_deplacementPossible[i] % deplacement == Position(0, 0)) {
-			return true;
-		}
-	}
-	return false;
-}
 

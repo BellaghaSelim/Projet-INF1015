@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="chessboard.cpp" />
+    <ClCompile Include="Fou.cpp" />
+    <ClCompile Include="Roi.cpp" />
+    <ClCompile Include="Tour.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="chessboard.hpp" />
+    <ClInclude Include="Fou.hpp" />
+    <ClInclude Include="Piece.hpp" />
+    <ClInclude Include="Roi.hpp" />
+    <ClInclude Include="Tour.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -42,7 +55,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -138,28 +151,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="board.h" />
-    <ClInclude Include="Case.h" />
-    <ClInclude Include="Deplacement.h" />
-    <ClInclude Include="Piece.h" />
-    <ClInclude Include="Pion.h" />
-    <ClInclude Include="Position.h" />
-    <ClInclude Include="Roi.h" />
-    <ClInclude Include="TempPosition.h" />
-    <ClInclude Include="Tour.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="board.cpp" />
-    <ClCompile Include="Case.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Piece.cpp" />
-    <ClCompile Include="Pion.cpp" />
-    <ClCompile Include="Position.cpp" />
-    <ClCompile Include="Roi.cpp" />
-    <ClCompile Include="TempPosition.cpp" />
-    <ClCompile Include="Tour.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
