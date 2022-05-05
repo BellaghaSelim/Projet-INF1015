@@ -24,8 +24,7 @@ Modele::Roi::Roi(std::string BlancOuNoir, int x, int y) {
 bool Modele::Roi::peutSeDeplacer(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> echiquier[8][8]) const {
     if ((abs(posX - nouvellePosX) == 1 || abs(posX - nouvellePosX) == 0) && (abs(posY - nouvellePosY) == 1 || abs(posY - nouvellePosY) == 0)) {
         if (prendre(nouvellePosX, nouvellePosY, echiquier) || echiquier[nouvellePosX][nouvellePosY] == nullptr) {
-            if(
-                (nouvellePosX, nouvellePosY, echiquier)){}
+            if(presenceRoi(nouvellePosX, nouvellePosY, echiquier)){}
             return true;
         }
     }

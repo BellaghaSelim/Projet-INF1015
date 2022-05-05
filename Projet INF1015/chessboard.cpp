@@ -5,24 +5,24 @@
 
 namespace Modele {
 
-Echiquier::Echiquier() {
-initialiser();
-}
+    Echiquier::Echiquier() {
+        initialiser();
+    }
 
-void Echiquier::initialiser() {
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
-            echiquier[i][j] = nullptr;
+    void Echiquier::initialiser() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                echiquier[i][j] = nullptr;
+            }
         }
     }
-}
 
-void Modele::Echiquier::initialiserCoordonnees(int positionX, int positionY, std::shared_ptr<Piece> piece){
-echiquier[positionX][positionY] = piece;
-}
+    void Modele::Echiquier::initialiserCoordonnees(int positionX, int positionY, std::shared_ptr<Piece> piece) {
+        echiquier[positionX][positionY] = piece;
+    }
 
-bool Modele::Echiquier::ajouterPiece(int positionX, int positionY, std::shared_ptr<Piece> piece) {
-if (piece->peutSeDeplacer(positionX, positionY, echiquier)) {
+    bool Modele::Echiquier::ajouterPiece(int positionX, int positionY, std::shared_ptr<Piece> piece) {
+        if (piece->peutSeDeplacer(positionX, positionY, echiquier)) {
             int x = piece->getPosX();
             int y = piece->getPosY();
             echiquier[positionX][positionY] = piece;
@@ -62,15 +62,8 @@ if (piece->peutSeDeplacer(positionX, positionY, echiquier)) {
         }
         return true;
     }
-
-
-    bool presenceRoi(int x, int y, std::shared_ptr<Modele::Piece> echiquier[8][8]) {
-        if (echiquier[x][y] != nullptr && echiquier[x][y]->getNom() == 'R') {
-            return true;
-        }
-        return false;
-    }
 }
+
 
 
 

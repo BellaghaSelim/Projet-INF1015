@@ -15,8 +15,7 @@ bool Modele::Fou::peutSeDeplacer(int nouvellePosX, int nouvellePosY, std::shared
     if (abs(nouvellePosX - posX) == abs(nouvellePosY - posY)) {
         if(echiquier[nouvellePosX][nouvellePosY] == nullptr || couleur != echiquier[nouvellePosX][nouvellePosY]->getCouleur() ){
             if (prendre(nouvellePosX, nouvellePosY, echiquier)) {
-                if (
-                    (nouvellePosX, nouvellePosY, echiquier)) {}
+                if (presenceRoi(nouvellePosX, nouvellePosY, echiquier)) {}
                 return true;
             }
         }

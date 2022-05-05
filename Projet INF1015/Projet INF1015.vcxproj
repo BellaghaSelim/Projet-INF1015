@@ -21,7 +21,9 @@
   <ItemGroup>
     <ClCompile Include="chessboard.cpp" />
     <ClCompile Include="Fou.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Roi.cpp" />
+    <ClCompile Include="Tests.cpp" />
     <ClCompile Include="Tour.cpp" />
   </ItemGroup>
   <ItemGroup>

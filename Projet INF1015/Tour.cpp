@@ -59,9 +59,7 @@ bool Modele::Tour::prendre(int nouvellePosX, int nouvellePosY, std::shared_ptr<P
 
     else if ((posY == nouvellePosY) && (posX > nouvellePosX)) {
         if (pieceDansLeCheminY(nouvellePosX, posX, posY, echiquier)) {
-            if (
-                
-                (nouvellePosX, posY, echiquier)) {}
+            if (presenceRoi(nouvellePosX, posY, echiquier)) {}
             return true;
             }
         }

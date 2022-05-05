@@ -13,7 +13,7 @@ namespace Modele {
         ~Roi();
         bool peutSeDeplacer(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> echiquier[8][8]) const override;
         bool prendre(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> [8][8]) const override;
-        static void resetCompteurRoi() { compteurRoi = 0; }
+        
     private:
         static int compteurRoi;
     };
