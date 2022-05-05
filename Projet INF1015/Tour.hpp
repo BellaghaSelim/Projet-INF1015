@@ -11,7 +11,7 @@ namespace Modele {
         Tour() = default;
         Tour(std::string BlanOuNoir, int x, int y);
         ~Tour() = default;
-        bool verifBouger(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> table[8][8]) const override;
-        bool prendre(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> table[8][8]) const override;
+        bool peutSeDeplacer(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> echiquier[8][8]) const override;
+        bool prendre(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> echiquier[8][8]) const override;
     };
 }

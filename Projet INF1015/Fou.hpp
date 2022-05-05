@@ -11,8 +11,8 @@ namespace Modele {
         Fou() = default;
         Fou(std::string BlanOuNoir, int x, int y);
         ~Fou() = default;
-        bool verifBouger(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> table[8][8]) const override;
-        bool 
-        (int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> table[8][8]) const override;
+        bool peutSeDeplacer(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> echiquier[8][8]) const override;
+ 
+        bool prendre(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> echiquier[8][8]) const override;
     };
 }

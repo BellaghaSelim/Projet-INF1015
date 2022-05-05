@@ -9,11 +9,11 @@ Modele::Tour::Tour(std::string BlanOuNoir, int x, int y) {
     posY = y;
 }
 
-bool Modele::Tour::verifBouger(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> table[8][8]) const {
+bool Modele::Tour::peutSeDeplacer(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> echiquier[8][8]) const {
     if (posX == nouvellePosX || posY == nouvellePosY) {
-        if (table[nouvellePosX][nouvellePosY] == nullptr || couleur != table[nouvellePosX][nouvellePosY]->getCouleur()) {
-            if (prendre(nouvellePosX, nouvellePosY, table)) {
-                if(echecRoi(nouvellePosX, nouvellePosY, table)){}
+        if (echiquier[nouvellePosX][nouvellePosY] == nullptr || couleur != echiquier[nouvellePosX][nouvellePosY]->getCouleur()) {
+            if (prendre(nouvellePosX, nouvellePosY, echiquier)) {
+                if(presenceRoi(nouvellePosX, nouvellePosY,echiquier)){}
                 return true;
             }
         }  
@@ -21,45 +21,47 @@ bool Modele::Tour::verifBouger(int nouvellePosX, int nouvellePosY, std::shared_p
     return false;
 }
 
-bool validerPassageX(const int petit, int const  grand, int posVoulu, std::shared_ptr<Modele::Piece> table[8][8]) { 
-    for (int i = petit + 1; i < grand; i++) {
-        if (table[posVoulu][i] != nullptr)
+bool pieceDansLeCheminX(const int posInitialeX, int finEchiquierX, int nouvellePosX, std::shared_ptr<Modele::Piece> echiquier[8][8]) { 
+    for (int i = posInitialeX + 1; i < finEchiquierX; i++) {
+        if (echiquier[nouvellePosX][i] != nullptr)
             return false;
     }    
     return true;
 }
-bool validerPassageY(const int petit, int const  grand, int posVoulu, std::shared_ptr<Modele::Piece> table[8][8]) {
-    for (int i = petit + 1; i < grand; i++) {
-        if (table[i][posVoulu] != nullptr)
+bool pieceDansLeCheminY(const int posInitialeY, int  finEchiquierY, int nouvellePosY, std::shared_ptr<Modele::Piece> echiquier[8][8]) {
+    for (int i = posInitialeY + 1; i < finEchiquierY; i++) {
+        if (echiquier[i][nouvellePosY] != nullptr)
             return false;
     }
     return true;
 }
 
-bool Modele::Tour::prendre(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> table[8][8]) const {
+bool Modele::Tour::prendre(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> echiquier[8][8]) const {
     if ((posX == nouvellePosX) && (posY < nouvellePosY)) {
-        if (validerPassageX(posY, nouvellePosY, posX, table)) {
-                if (echecRoi(posX, nouvellePosY, table)) {}
+        if (pieceDansLeCheminX(posY, nouvellePosY, posX, echiquier)) {
+                if (presenceRoi(posX, nouvellePosY, echiquier)) {}
                 return true;
             }
                 
         }
     else if ((posX == nouvellePosX) && (posY > nouvellePosY)) {
-            if (validerPassageX(nouvellePosY, posY, posX, table)) {
-                if (echecRoi(posX, nouvellePosY, table)) {}
+            if (pieceDansLeCheminX(nouvellePosY, posY, posX, echiquier)) {
+                if (presenceRoi(posX, nouvellePosY, echiquier)) {}
                 return true;
             }
         }
     else if ((posY == nouvellePosY) && (posX < nouvellePosX)) {
-            if (validerPassageY(posX, nouvellePosX, posY, table)) {
-                if (echecRoi(nouvellePosX, posY, table)) {}
+            if (pieceDansLeCheminY(posX, nouvellePosX, posY, echiquier)) {
+                if (presenceRoi(nouvellePosX, posY, echiquier)) {}
                 return true;
             }
         }
 
     else if ((posY == nouvellePosY) && (posX > nouvellePosX)) {
-        if (validerPassageY(nouvellePosX, posX, posY, table)) {
-            if (echecRoi(nouvellePosX, posY, table)) {}
+        if (pieceDansLeCheminY(nouvellePosX, posX, posY, echiquier)) {
+            if (
+                
+                (nouvellePosX, posY, echiquier)) {}
             return true;
             }
         }

@@ -11,11 +11,12 @@ Modele::Fou::Fou(string BlanOuNoir, int x, int y) {
     posY = y;
 }
 
-bool Modele::Fou::verifBouger(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> table[8][8]) const {
+bool Modele::Fou::peutSeDeplacer(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> echiquier[8][8]) const {
     if (abs(nouvellePosX - posX) == abs(nouvellePosY - posY)) {
-        if(table[nouvellePosX][nouvellePosY] == nullptr || couleur != table[nouvellePosX][nouvellePosY]->getCouleur() ){
-            if (prendre(nouvellePosX, nouvellePosY, table)) {
-                if (echecRoi(nouvellePosX, nouvellePosY, table)) {}
+        if(echiquier[nouvellePosX][nouvellePosY] == nullptr || couleur != echiquier[nouvellePosX][nouvellePosY]->getCouleur() ){
+            if (prendre(nouvellePosX, nouvellePosY, echiquier)) {
+                if (
+                    (nouvellePosX, nouvellePosY, echiquier)) {}
                 return true;
             }
         }
@@ -23,18 +24,18 @@ bool Modele::Fou::verifBouger(int nouvellePosX, int nouvellePosY, std::shared_pt
     return false;
 }
 
-bool Modele::Fou::prendre(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> table[8][8]) const {
+bool Modele::Fou::prendre(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> echiquier[8][8]) const {
     if (posX > nouvellePosX) {
         if (posY > nouvellePosY) {                              
             for (int i = nouvellePosX + 1; i < posX; i++) {
-                if (table[i][i + 1] != nullptr) {
+                if (echiquier[i][i + 1] != nullptr) {
                     return false;
                 }
             }
         }
         else if (posY < nouvellePosY) {                         
             for (int i = nouvellePosX + 1; i < posX; i++) {
-                if (table[i][6 - i] != nullptr) {
+                if (echiquier[i][6 - i] != nullptr) {
                     return false;
                 }
             }
@@ -43,14 +44,14 @@ bool Modele::Fou::prendre(int nouvellePosX, int nouvellePosY, std::shared_ptr<Pi
     else if (posX < nouvellePosX) {
         if (posY > nouvellePosY) {                             
             for (int i = posX + 1; i < nouvellePosX; i++) {
-                if (table[i][6 - i] != nullptr) {
+                if (echiquier[i][6 - i] != nullptr) {
                     return false;
                 }
             }
         }
         else if (posY < nouvellePosY) {                            
             for (int i = posX; i < nouvellePosX - 1; i++) {
-                if (table[1 + i][1 + i] != nullptr)
+                if (echiquier[1 + i][1 + i] != nullptr)
                     return false;
             }
         }

@@ -21,10 +21,11 @@ Modele::Roi::Roi(std::string BlancOuNoir, int x, int y) {
     
 }
 
-bool Modele::Roi::verifBouger(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> table[8][8]) const {
+bool Modele::Roi::peutSeDeplacer(int nouvellePosX, int nouvellePosY, std::shared_ptr<Piece> echiquier[8][8]) const {
     if ((abs(posX - nouvellePosX) == 1 || abs(posX - nouvellePosX) == 0) && (abs(posY - nouvellePosY) == 1 || abs(posY - nouvellePosY) == 0)) {
-        if (prendre(nouvellePosX, nouvellePosY, table) || table[nouvellePosX][nouvellePosY] == nullptr) {
-            if(echecRoi(nouvellePosX, nouvellePosY, table)){}
+        if (prendre(nouvellePosX, nouvellePosY, echiquier) || echiquier[nouvellePosX][nouvellePosY] == nullptr) {
+            if(
+                (nouvellePosX, nouvellePosY, echiquier)){}
             return true;
         }
     }
@@ -33,8 +34,8 @@ bool Modele::Roi::verifBouger(int nouvellePosX, int nouvellePosY, std::shared_pt
 
 
 
-bool  Modele::Roi::prendre(int nouvellePosX, int nouvellePosY, std::shared_ptr <Piece> table[8][8]) const{
-    if (table[nouvellePosX][nouvellePosY]!= nullptr && couleur!= table[nouvellePosX][nouvellePosY]->getCouleur())
+bool  Modele::Roi::prendre(int nouvellePosX, int nouvellePosY, std::shared_ptr <Piece> echiquier[8][8]) const{
+    if (echiquier[nouvellePosX][nouvellePosY]!= nullptr && couleur!= echiquier[nouvellePosX][nouvellePosY]->getCouleur())
         return  true;
     return  false;
 }

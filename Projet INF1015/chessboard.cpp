@@ -22,13 +22,13 @@ echiquier[positionX][positionY] = piece;
 }
 
 bool Modele::Echiquier::ajouterPiece(int positionX, int positionY, std::shared_ptr<Piece> piece) {
-if (piece->verifBouger(positionX, positionY, echiquier)) {
+if (piece->peutSeDeplacer(positionX, positionY, echiquier)) {
             int x = piece->getPosX();
             int y = piece->getPosY();
             echiquier[positionX][positionY] = piece;
             echiquier[piece->getPosX()][piece->getPosY()] = nullptr;
             piece->setPosition(positionX, positionY);
-            if (verifEchecRoi(piece))
+            if (miseEnEchec(piece))
                 return true;
             else {
                 echiquier[x][y] = piece;
@@ -39,7 +39,8 @@ if (piece->verifBouger(positionX, positionY, echiquier)) {
         return false;
     }
 
-    bool Modele::Echiquier::verifEchecRoi(std::shared_ptr<Piece> piece) {
+
+    bool Modele::Echiquier::miseEnEchec(std::shared_ptr<Piece> piece) {
         int x = 0, y = 0;
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -54,7 +55,7 @@ if (piece->verifBouger(positionX, positionY, echiquier)) {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (echiquier[i][j] != nullptr && piece->getCouleur() != echiquier[i][j]->getCouleur()) {
-                    if (echiquier[i][j]->verifBouger(x, y, echiquier) && piece->getNom() != 'R')
+                    if (echiquier[i][j]->peutSeDeplacer(x, y, echiquier) && piece->getNom() != 'R')
                         return false;
                 }
             }
@@ -63,9 +64,8 @@ if (piece->verifBouger(positionX, positionY, echiquier)) {
     }
 
 
-    bool echecRoi(int x, int y, std::shared_ptr<Modele::Piece> table[8][8]) {
-        if (table[x][y] != nullptr && table[x][y]->getNom() == 'R') {
-            std::cout << "Echec du roi " << std::endl;
+    bool presenceRoi(int x, int y, std::shared_ptr<Modele::Piece> echiquier[8][8]) {
+        if (echiquier[x][y] != nullptr && echiquier[x][y]->getNom() == 'R') {
             return true;
         }
         return false;
